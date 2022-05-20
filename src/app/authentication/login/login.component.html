@@ -1,0 +1,28 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Inicio de Sesion</mat-card-title>
+      </mat-card-header>
+  
+      <form class="example-form" [formGroup]="form" (ngSubmit)="OnLogin()" >
+        <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Username" [formControl]="form.controls['uname']" autocomplete="off">
+            </mat-form-field>
+            <small *ngIf="form.controls['uname'].hasError('required') && form.controls['uname'].touched" class="text-danger support-text">
+              Usuario required.
+            </small>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput type="password"placeholder="Password" [formControl]="form.controls['password']" >
+          </mat-form-field>
+          <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="text-danger support-text">
+            Password required.
+          </small>
+        </mat-card-content>
+        <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+      </form>
+    </mat-card>
+  
+  </div>

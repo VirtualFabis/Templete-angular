@@ -1,0 +1,24 @@
+<div [formGroup]="form"  style="margin-left: 15px; margin-top: 5px;">
+
+    <div [ngSwitch]="question.controlType">
+        <mat-form-field *ngSwitchCase="'textbox'" style="width: 80%;">
+            <mat-label [attr.for]="question.key"> {{question.label}}: </mat-label>
+            <input matInput [formControlName]="question.key" [readonly]="question.disabled" [id]="question.key" [type]="question.type"
+                autocomplete="off">
+        </mat-form-field>
+
+        <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+            <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+        </select>
+
+        <div *ngSwitchCase="'radio'">
+            <mat-label [attr.for]="question.key"> {{question.label}} </mat-label>
+            <mat-radio-group  aria-labelledby="example-radio-group-label"
+            class="example-radio-group"   [formControlName]="question.key">
+                <mat-radio-button *ngFor="let opt of question.options" [disabled]="question.disabled" [value]="opt.key" (change)="validate($event)" class="example-radio-button"> {{opt.value}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+    <div class="errorMessage" *ngIf="!isValid && question.key.touched">{{question.label}} es requerido</div>
+</div>

@@ -1,0 +1,3 @@
+<app-table [columnsDisplay]="columns" [dataSource]="rows"></app-table>
+
+<app-table-dynamic *ngIf="columns.length > 0"  style="padding: 10px;" [columnsDisplay]="columns" (delegateClick)="getClick($event)" [pageSizeOptions]="[5, 10, 15, 20]" [dataSource]="rows" ></app-table-dynamic>

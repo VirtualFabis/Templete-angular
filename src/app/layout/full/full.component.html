@@ -1,0 +1,18 @@
+<mat-sidenav-container class="sidenav-container mat-typography" autosize>
+    <mat-sidenav #drawer mode="side" disableClose="true" opened="true">
+      <mat-toolbar color="primary"><button mat-icon-button (click)="isExpanded = !isExpanded">
+        <mat-icon aria-label="Menu">menu</mat-icon>
+      </button></mat-toolbar>
+      <app-sidebar [isExpanded]="isExpanded" (name)="getName($event)" ></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        
+        <span>{{title}}</span>
+      </mat-toolbar>
+      <!-- Add Content Here -->
+      <div class="container-custom">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
