@@ -1,28 +1,72 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
-    <mat-card class="box">
-      <mat-card-header>
-        <mat-card-title>Inicio de Sesion</mat-card-title>
-      </mat-card-header>
-  
-      <form class="example-form" [formGroup]="form" (ngSubmit)="OnLogin()" >
-        <mat-card-content>
+  <mat-tab-group    backgroundColor="primary"> 
+    <mat-tab label="Inicio de Sesion" >  
+      <mat-card class="box">
+        <mat-card-header>
+          <mat-card-title>Inicio de Sesion</mat-card-title>
+        </mat-card-header>
+    
+        <form class="example-form" [formGroup]="form" (ngSubmit)="OnLogin()" >
+          <mat-card-content>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Username" [formControl]="form.controls['wiw']" autocomplete="off">
+              </mat-form-field>
+              <small *ngIf="form.controls['wiw'].hasError('required') && form.controls['wiw'].touched" class="text-danger support-text">
+                Usuario required.
+              </small>
+    
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" [formControl]="form.controls['uname']" autocomplete="off">
+              <input matInput type="password"placeholder="Password" [formControl]="form.controls['password']" >
             </mat-form-field>
-            <small *ngIf="form.controls['uname'].hasError('required') && form.controls['uname'].touched" class="text-danger support-text">
-              Usuario required.
+            <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="text-danger support-text">
+              Password required.
             </small>
-  
-          <mat-form-field class="example-full-width">
-            <input matInput type="password"placeholder="Password" [formControl]="form.controls['password']" >
-          </mat-form-field>
-          <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="text-danger support-text">
-            Password required.
-          </small>
-        </mat-card-content>
-        <button mat-stroked-button color="accent" class="btn-block">Log in</button>
-      </form>
-    </mat-card>
-  
+          </mat-card-content>
+          <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+        </form>
+      </mat-card>  
+    </mat-tab>
+    <mat-tab label="Registro"> 
+      <mat-card class="box">
+        <mat-card-header>
+          <mat-card-title>Registrate </mat-card-title>
+        </mat-card-header>
+        <form class="example-form" [formGroup]="form1" (ngSubmit)="Register()" >
+          <mat-card-content>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Username" [formControl]="form1.controls['wiw']" autocomplete="off">
+              </mat-form-field>
+              <small *ngIf="form1.controls['wiw'].hasError('required') && form1.controls['wiw'].touched" class="text-danger support-text">
+                Usuario required.
+              </small>
+
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Name" [formControl]="form1.controls['name']" autocomplete="off">
+              </mat-form-field>
+              <small *ngIf="form1.controls['name'].hasError('required') && form1.controls['name'].touched" class="text-danger support-text">
+                Name required.
+              </small>
+
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" [formControl]="form1.controls['email']" autocomplete="off">
+              </mat-form-field>
+              <small *ngIf="form1.controls['email'].hasError('required') && form1.controls['email'].touched" class="text-danger support-text">
+                email required.
+              </small>
+
+            <mat-form-field class="example-full-width">
+              <input matInput type="password"placeholder="Password" [formControl]="form1.controls['password']" >
+            </mat-form-field>
+            <small *ngIf="form1.controls['password'].hasError('required') && form1.controls['password'].touched" class="text-danger support-text">
+              Password required.
+            </small>
+          </mat-card-content>
+          <button mat-stroked-button color="accent" class="btn-block">Register</button>
+        </form>
+      </mat-card>  
+    </mat-tab>
+  </mat-tab-group>
   </div>
+
+  

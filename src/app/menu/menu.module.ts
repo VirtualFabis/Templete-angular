@@ -8,6 +8,7 @@ import { SidebarComponent } from '../layout/full/sidebar/sidebar.component';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { QuestionsComponent } from './pages/questions/questions.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,10 +18,12 @@ import { QuestionsComponent } from './pages/questions/questions.component';
     CommonModule,
     ROUTES,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     FullComponent
-  ]
+  ],
 })
 export class MenuModule { }

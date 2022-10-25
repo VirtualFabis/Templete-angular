@@ -15,15 +15,55 @@ export class AuthenticationService {
   constructor(private Http: HttpClient) { }
 
   doLogin(body: Login) {
-    return this.Http.post(`${environment.urlLogin}User/GetUser`, body)
+    return this.Http.post(`${environment.urlBase}Login`, body)
     .pipe(
       map((response: User) => {
         return response;
       })
     );
   }
-
+  Register(body: Login) {
+    return this.Http.post(`${environment.urlBase}Register`, body)
+    .pipe(
+      map((response: User) => {
+        return response;
+      })
+    );
+  }
+  Task(body: any) {
+    return this.Http.post(`${environment.urlBase}Task`, body)
+    .pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+  ListTask(body: any) {
+    return this.Http.post(`${environment.urlBase}ListTask`, body)
+    .pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+  updateTask(body: any){
+    return this.Http.post(`${environment.urlBase}UpdateTask`, body)
+    .pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+  deleteTask(body: any){
+    return this.Http.post(`${environment.urlBase}DeleteTask`, body)
+    .pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
   setUser(user: User) {
+    console.log("🚀 ~ file: authentication.service.ts ~ line 35 ~ AuthenticationService ~ setUser ~ user", user)
     this.User = user;
     localStorage.setItem('user', JSON.stringify(this.User));
   }

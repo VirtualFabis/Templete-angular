@@ -1,3 +1,79 @@
-<app-table [columnsDisplay]="columns" [dataSource]="rows"></app-table>
+<mat-grid-list cols="3" rowHeight="18rem" @miTrigger>
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="box" style="width: 250px;">
+      <mat-card-header>
+        <mat-card-title>Registro de tareas</mat-card-title>
+      </mat-card-header>
+      <form class="example-form" [formGroup]="form" (ngSubmit)="send()">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input
+              matInput
+              placeholder="task"
+              [formControl]="form.controls['task']"
+              autocomplete="off"
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['task'].hasError('required') &&
+              form.controls['task'].touched
+            "
+            class="text-danger support-text"
+          >
+            Titulo required.
+          </small>
+          <br />
+          <mat-form-field class="example-full-width">
+            <input
+              matInput
+              placeholder="desc"
+              [formControl]="form.controls['desc']"
+              autocomplete="off"
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['desc'].hasError('required') &&
+              form.controls['desc'].touched
+            "
+            class="text-danger support-text"
+          >
+            desc required.
+          </small>
+        </mat-card-content>
+        <button
+          mat-stroked-button
+          color="accent"
+          style="width: 100px;"
+          class="btn-block"
+        >
+          Register
+        </button>
+      </form>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+<h1>Listado de tareas</h1>
+<mat-grid-list cols="3" rowHeight="10rem">
+  <mat-grid-tile *ngFor="let item of Data" >
+      <mat-card  [ngClass]="{greenClass: item.activate, redClass: !item.activate}" style="width: 400px;" >
+        <div style="display: flex;">
+          <div>
+            <mat-card-title>Tarea {{ item.task }}</mat-card-title>
+          </div>
+          <div style="flex-grow: 1;"></div>
+          <button mat-icon-button (click)="update(item.idTask, item.activate)">
+            <mat-icon>done</mat-icon>
+          </button>
+          <button mat-icon-button  (click)="delete(item.idTask)"><mat-icon>delete</mat-icon></button>
+        </div>
+        <mat-card-content>
+          <p>Descripción: {{ item.desc }}</p>
+        </mat-card-content>
+      </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
 
-<app-table-dynamic *ngIf="columns.length > 0"  style="padding: 10px;" [columnsDisplay]="columns" (delegateClick)="getClick($event)" [pageSizeOptions]="[5, 10, 15, 20]" [dataSource]="rows" ></app-table-dynamic>

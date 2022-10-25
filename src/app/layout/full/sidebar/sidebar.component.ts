@@ -38,12 +38,28 @@ export class SidebarComponent implements OnInit {
           state: 'tabla',
           type: 'link'
         },
-        {
-          icon: 'description',
-          name: 'Formulario',
-          state: 'preguntas',
-          type: 'link'
-        }];
+      ];
+      default :
+      this.listMenu = [{
+        icon: 'event_available',
+        name: 'Calendario',
+        state: 'calendario',
+        type: 'link'
+      },
+      {
+        icon: 'change_history',
+        name: 'Tareas',
+        state: 'tabla',
+        type: 'link'
+      },
+      {
+        icon: 'table_view',
+        name: 'Tabla de tareas' ,
+        state: 'preguntas',
+        type: 'link'
+      }
+    ];
+      break;
         this.nameEmitido = 'Calendario';
         break;
     }

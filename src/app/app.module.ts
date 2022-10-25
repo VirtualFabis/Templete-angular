@@ -27,7 +27,7 @@ import { MenuModule } from './menu/menu.module';
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
-    MenuModule
+    MenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

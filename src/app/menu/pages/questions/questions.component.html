@@ -1,3 +1,5 @@
-<div >
-    <app-dynamic-form [audit]="audit" [questions]="questions$ | async"></app-dynamic-form>
-</div>
+<app-table  @miTrigger
+  *ngIf="rows.length > 0"
+  [columnsDisplay]="columns"
+  [dataSource]="rows"
+></app-table>

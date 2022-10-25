@@ -13,11 +13,11 @@ import { TableComponent } from './components/table/table.component';
 // Modulos
 import { MaterialModule } from '../material/material.module';
 import { EditableDirective } from './directives/editable.directive';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { TableDynamicComponent } from './components/table-dynamic/table-dynamic.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 FullCalendarModule.registerPlugins([
@@ -41,8 +41,9 @@ FullCalendarModule.registerPlugins([
         CommonModule,
         FullCalendarModule,
         MaterialModule,
-        FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
+
     ],
     exports: [
         CalendarComponent,
