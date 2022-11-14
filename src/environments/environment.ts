@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   urlBase: 'https://localhost:44304/api/',
+  emailValidate: 'https://api.mailersend.com/v1/'
 };
 
 /*

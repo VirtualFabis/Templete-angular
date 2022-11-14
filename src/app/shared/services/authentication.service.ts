@@ -13,6 +13,14 @@ export class AuthenticationService {
   User: User = new User();
 
   constructor(private Http: HttpClient) { }
+  emailVer(email: any){
+    return this.Http.get(`${environment.urlBase}VerMail?email=${email}`)
+    .pipe(
+      map((response) => {
+        return response;
+      })
+    );
+  }
 
   doLogin(body: Login) {
     return this.Http.post(`${environment.urlBase}Login`, body)
